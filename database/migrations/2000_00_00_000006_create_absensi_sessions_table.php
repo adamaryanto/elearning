@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('jadwal_id')->constrained('jadwals')->onDelete('cascade');
             $table->date('tanggal');
-            $table->time('jam_buka');
-            $table->time('jam_tutup');
+            $table->dateTime('jam_buka');
+            $table->dateTime('jam_tutup')->nullable();
             $table->enum('status',['open','closed']);
             $table->timestamps();
         });

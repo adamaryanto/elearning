@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('kelas_id')->constrained()->onDelete('cascade');
-            $table->foreignId('prodi_id')->constrained('program_studis')->onDelete('cascade');
+            
             $table->integer('nim');
-            $table->integer('semester');
+            
 
             $table->timestamps();
         });

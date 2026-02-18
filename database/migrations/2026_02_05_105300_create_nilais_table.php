@@ -14,10 +14,13 @@ return new class extends Migration
         Schema::create('nilais', function (Blueprint $table) {
             $table->id();
             $table->foreignId('mahasiswa_id')->constrained('mahasiswas')->onDelete('cascade');
-            $table->foreignId('matkul_id')->constrained('mata_kuliahs')->onDelete('cascade');
-            $table->integer('nilai_tugas');
-            $table->integer('nilai_uas');
-            $table->integer('nilai_uts');
+            $table->foreignId('jadwal_id')->constrained('jadwals')->onDelete('cascade');
+            $table->float('nilai_harian')->nullable(); 
+            $table->float('nilai_uts')->nullable();
+            $table->float('nilai_uas')->nullable();
+
+            $table->float('nilai_absen')->nullable();
+            $table->float('nilai_akhir')->nullable();
             $table->timestamps();
         });
     }

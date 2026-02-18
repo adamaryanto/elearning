@@ -1,17 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+use App\Models\ProgramStudi;
 use Illuminate\Http\Request;
 
-class KelasController extends Controller
+class ProgramStudiController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $prodis = ProgramStudi::all();
+        return view('testing.admin.prodi.index',compact('prodis'));
     }
 
     /**
@@ -19,7 +22,7 @@ class KelasController extends Controller
      */
     public function create()
     {
-        //
+        return view('testing.admin.prodi.create');
     }
 
     /**
@@ -27,7 +30,14 @@ class KelasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            'nama_prodi'=> 'required|string|max:100|unique:program_studis,nama_prodi',
+        ]);
+        ProgramStudi::create([
+            'nama_prodi'=>$validate['nama_prodi']
+        ]);
+        return redirect()->back()->with('succes', 'Program Studi berhasil ditambahkan');
+
     }
 
     /**

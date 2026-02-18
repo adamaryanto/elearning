@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Mahasiswa;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class MateriController extends Controller
+class UjianController extends Controller
 {
     /**
      * Display a listing of the resource.

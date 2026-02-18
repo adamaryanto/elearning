@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class kelas extends Model
+class Kelas extends Model
 {
     protected $fillable = ['nama_kelas','semester','prodi_id'];
     public function mahasiswa(){
         return $this->hasMany(Mahasiswa::class);
     }
     public function prodi(){
-        return $this->belongsTo(ProgramStudi::class);
+        return $this->belongsTo(ProgramStudi::class,'prodi_id');
     }
     public function jadwal(){
         return $this->hasMany(Jadwal::class);

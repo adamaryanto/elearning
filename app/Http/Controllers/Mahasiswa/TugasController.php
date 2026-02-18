@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Mahasiswa;
 
-use App\Models\Absensi;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class AbsensiController extends Controller
+class TugasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -29,11 +28,7 @@ class AbsensiController extends Controller
      */
     public function store(Request $request)
     {
-        
-        Absensi::create([
-            'mahasiswa_id'=>Auth::user()->mahasiswa->id,
-            'absensi_sesion_id'=>$request->absensi_sesion_id
-        ]);
+        //
     }
 
     /**

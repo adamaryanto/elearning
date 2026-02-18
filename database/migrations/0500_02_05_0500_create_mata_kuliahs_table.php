@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('kode_matkul')->unique();
             $table->string('nama_matkul');
             $table->integer('sks');
+            $table->foreignId('prodi_id')->constrained('program_studis')->onDelete('cascade');
             $table->timestamps();
         });
     }

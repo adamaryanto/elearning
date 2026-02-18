@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Dosen extends Model
 {
     protected $table = 'dosens';
-    protected $fillable= ['user_id','nidn','nama'];
+    protected $fillable= ['user_id','nidn','kode_dosen'];
     public function jadwal(){
         return $this->hasMany(Jadwal::class);
     }

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('kelas_id')->constrained()->onDelete('cascade');
             $table->foreignId('matkul_id')->constrained('mata_kuliahs')->onDelete('cascade');
             $table->foreignId('dosen_id')->constrained('dosens')->onDelete('cascade');
+            $table->foreignId('semester');
             $table->enum('hari',['Senin','Selasa','Rabu','Kamis','Jumat','Sabtu']);
             $table->time('jam_mulai');
             $table->time('jam_selesai');

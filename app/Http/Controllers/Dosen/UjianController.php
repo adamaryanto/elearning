@@ -1,27 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dosen;
 
-use App\Models\Jadwal;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class JadwalController extends Controller
+class UjianController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $user = Auth::user();
-        if($user->role == 'Admin'){
-            $jadwal = Jadwal::with(['kelas','matkul','dosen'])->get();
-        }
-        elseif($user->role =='Dosen'){
-            $jadwal = $user->dosen->jadwal()->with(['kelas','matkul'])->get();
-        }elseif($user->role=='Mahasiswa'){
-            $jadwal=$user->mahasiswa->jadwal()->with(['dosen','kelas','matkul'])->get();
-        }
+        //
     }
 
     /**
