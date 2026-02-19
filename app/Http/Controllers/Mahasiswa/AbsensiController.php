@@ -7,6 +7,7 @@ use App\Models\Absensi;
 use App\Models\AbsensiSession;
 
 
+use App\Models\Jadwal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,7 +19,8 @@ class AbsensiController extends Controller
      */
     public function index()
     {
-        return view('testing.mahasiswa.absensi.index');
+        $jadwals = Jadwal::all();
+        return view('testing.mahasiswa.absensi.index',compact('jadwals'));
     }
 
     /**
